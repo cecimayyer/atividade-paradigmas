@@ -1,0 +1,83 @@
+{
+  "nbformat": 4,
+  "nbformat_minor": 0,
+  "metadata": {
+    "colab": {
+      "provenance": [],
+      "authorship_tag": "ABX9TyO7wH0KYlnoUytOJ62xz4uE",
+      "include_colab_link": true
+    },
+    "kernelspec": {
+      "name": "python3",
+      "display_name": "Python 3"
+    },
+    "language_info": {
+      "name": "python"
+    }
+  },
+  "cells": [
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "view-in-github",
+        "colab_type": "text"
+      },
+      "source": [
+        "<a href=\"https://colab.research.google.com/github/cecimayyer/atividade-paradigmas/blob/main/atividade_fixa%C3%A7ao.12/11\" target=\"_parent\"><img src=\"https://colab.research.google.com/assets/colab-badge.svg\" alt=\"Open In Colab\"/></a>"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "class Funcionario:\n",
+        "    def __init__(self, nome, cpf, salario):\n",
+        "        self.nome = nome\n",
+        "        self.cpf = cpf\n",
+        "        self.salario = salario\n",
+        "\n",
+        "    def bonificacao(self):\n",
+        "        return self.salario * 0.10\n",
+        "funcionario1 = Funcionario('Tavares', 23443222, 1500.0)\n",
+        "print(funcionario1.nome, funcionario1.cpf, funcionario1.salario)\n",
+        "\n",
+        "class Gerente(Funcionario):\n",
+        "    def __init__(self, nome, cpf, salario, idade, equipe):\n",
+        "        super().__init__(nome, cpf, salario)\n",
+        "        self.idade = idade\n",
+        "        self.equipe = equipe\n",
+        "    def bonificacao(self):\n",
+        "        return self.salario * 0.15\n",
+        "gerente1 = Gerente('Kaue', 78998777, 6000.0, 35, 2)\n",
+        "print(gerente1.nome, gerente1.cpf, gerente1.salario, gerente1.idade, gerente1.equipe)\n",
+        "\n",
+        "class Diretor(Gerente):\n",
+        "    def __init__(self, nome, cpf, salario, idade, equipe):\n",
+        "        super().__init__(nome, cpf, salario, idade, equipe)\n",
+        "    def bonificacao(self):\n",
+        "        return( (self.salario * 0.15) + self.salario)\n",
+        "diretor1 = Diretor('Ana', 12345678, 10000.0, 42, 5)\n",
+        "print(diretor1.nome, diretor1.cpf, diretor1.salario, diretor1.idade, diretor1.equipe)\n",
+        "\n"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "iZgLtDOCL2Up",
+        "outputId": "565754a2-d347-4a77-d906-644a594a5211"
+      },
+      "execution_count": 12,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "Tavares 23443222 1500.0\n",
+            "Kaue 78998777 6000.0 35 2\n",
+            "Ana 12345678 10000.0 42 5\n"
+          ]
+        }
+      ]
+    }
+  ]
+}
