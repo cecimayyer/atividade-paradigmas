@@ -1,0 +1,149 @@
+{
+  "nbformat": 4,
+  "nbformat_minor": 0,
+  "metadata": {
+    "colab": {
+      "provenance": [],
+      "authorship_tag": "ABX9TyPtfiBq7BoQM2MT87vW3I3w",
+      "include_colab_link": true
+    },
+    "kernelspec": {
+      "name": "python3",
+      "display_name": "Python 3"
+    },
+    "language_info": {
+      "name": "python"
+    }
+  },
+  "cells": [
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "view-in-github",
+        "colab_type": "text"
+      },
+      "source": [
+        "<a href=\"https://colab.research.google.com/github/cecimayyer/atividade-paradigmas/blob/main/teste\" target=\"_parent\"><img src=\"https://colab.research.google.com/assets/colab-badge.svg\" alt=\"Open In Colab\"/></a>"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "execution_count": null,
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/",
+          "height": 106
+        },
+        "id": "Cl5DaCStVhHj",
+        "outputId": "1bfc2b26-df80-4951-b8b0-42018d0cfca9"
+      },
+      "outputs": [
+        {
+          "output_type": "error",
+          "ename": "SyntaxError",
+          "evalue": "invalid syntax (ipython-input-2309971389.py, line 6)",
+          "traceback": [
+            "\u001b[0;36m  File \u001b[0;32m\"/tmp/ipython-input-2309971389.py\"\u001b[0;36m, line \u001b[0;32m6\u001b[0m\n\u001b[0;31m    def.bonificaçao(self):\u001b[0m\n\u001b[0m       ^\u001b[0m\n\u001b[0;31mSyntaxError\u001b[0m\u001b[0;31m:\u001b[0m invalid syntax\n"
+          ]
+        }
+      ],
+      "source": [
+        "class funcionario:\n",
+        "  def __init__(self, nome, cpf, salario):\n",
+        "    self.nome = nome\n",
+        "    self.cpf = cpf\n",
+        "    self.salario = salario\n",
+        "  def bonificaçao(self):\n",
+        "    return self.salario * (1 + 0.10)\n",
+        "funcionario1 = funcionario('Tavares' 23443222, 1500,0)\n",
+        "print(funcionario1.nome, funcionario1.cpf, funcionario1.salario)\n",
+        "\n",
+        "\n",
+        "class gerente(funcionario):\n",
+        "  def __init__(self, nome, cpf, salario, idade, equipe):\n",
+        "    super().__init__(nome, cpf, salario)\n",
+        "    self.idade = idade\n",
+        "    self.equipe = equipe\n",
+        "  def bonificacao(self):\n",
+        "    return ((self.salario * 0.15) + self.salario)\n",
+        "gerente1 = gerente('Kaue, 78998777, 2500, 35, 2 )\n",
+        "print(gerente1.nome, gerente.cpf, gerente.salario, gerente.idade, gerente.equipe)\n",
+        "\n",
+        "class diretor(gerente):\n",
+        "  def __init__(self, nome, cpf, salario, idade, equipe):\n",
+        "    super().__init__(nome, cpf, salario, idade, equipe)\n",
+        "  def bonificacao(self):\n",
+        "    return self.salario * (1 + 0.15)"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "class funcionario:\n",
+        "  def __init__(self, nome, cpf, salario):\n",
+        "    self.nome = nome\n",
+        "    self.cpf = cpf\n",
+        "    self.salario = salario\n",
+        "\n",
+        "  def bonificacao(self):\n",
+        "    return ((self.salario *  0.10) + self.salario)\n",
+        "\n",
+        "funcionario1 = funcionario('Tavares', 23443222, 1500)\n",
+        "print(funcionario1.nome, funcionario1.cpf, funcionario1.salario)\n"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "-3O4uMKhcVnp",
+        "outputId": "424ae479-68b8-4b65-bea9-596f80025e48"
+      },
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "Tavares 23443222 1500\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "class gerente(funcionario):\n",
+        "  def __init__(self, nome, cpf, salario, idade, equipe):\n",
+        "    super().__init__(nome, cpf, salario)\n",
+        "    self.idade = idade\n",
+        "    self.equipe = equipe\n",
+        "  def bonificacao(self):\n",
+        "    return ((self.salario * 0.15) + self.salario)\n",
+        "gerente1 = gerente('João', 987654321, 6000, 35, \"equipe2\") # Added missing arguments\n",
+        "print(gerente1.nome, gerente1.cpf, gerente1.salario, gerente1.idade, gerente1.equipe) # Corrected print statement"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/",
+          "height": 211
+        },
+        "id": "ofr8qL_3dpPO",
+        "outputId": "f3ca7c2c-9ce4-427a-d74f-c64ad40c9f94"
+      },
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "error",
+          "ename": "TypeError",
+          "evalue": "gerente.__init__() missing 3 required positional arguments: 'salario', 'idade', and 'equipe'",
+          "traceback": [
+            "\u001b[0;31m---------------------------------------------------------------------------\u001b[0m",
+            "\u001b[0;31mTypeError\u001b[0m                                 Traceback (most recent call last)",
+            "\u001b[0;32m/tmp/ipython-input-2499595971.py\u001b[0m in \u001b[0;36m<cell line: 0>\u001b[0;34m()\u001b[0m\n\u001b[1;32m      6\u001b[0m   \u001b[0;32mdef\u001b[0m \u001b[0mbonificacao\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0mself\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m:\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[1;32m      7\u001b[0m     \u001b[0;32mreturn\u001b[0m \u001b[0;34m(\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0mself\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0msalario\u001b[0m \u001b[0;34m*\u001b[0m \u001b[0;36m0.15\u001b[0m\u001b[0;34m)\u001b[0m \u001b[0;34m+\u001b[0m \u001b[0mself\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0msalario\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[0;32m----> 8\u001b[0;31m \u001b[0mgerente1\u001b[0m \u001b[0;34m=\u001b[0m \u001b[0mgerente\u001b[0m\u001b[0;34m(\u001b[0m \u001b[0;36m35\u001b[0m\u001b[0;34m,\u001b[0m \u001b[0;34m\"equipe2\"\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[0m\u001b[1;32m      9\u001b[0m \u001b[0mprint\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0mgerente1\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0mnome\u001b[0m\u001b[0;34m,\u001b[0m \u001b[0mgerente\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0mcpf\u001b[0m\u001b[0;34m,\u001b[0m \u001b[0mgerente\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0msalario\u001b[0m\u001b[0;34m,\u001b[0m \u001b[0mgerente\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0midade\u001b[0m\u001b[0;34m,\u001b[0m \u001b[0mgerente\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0mequipe\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[1;32m     10\u001b[0m \u001b[0;34m\u001b[0m\u001b[0m\n",
+            "\u001b[0;31mTypeError\u001b[0m: gerente.__init__() missing 3 required positional arguments: 'salario', 'idade', and 'equipe'"
+          ]
+        }
+      ]
+    }
+  ]
+}
